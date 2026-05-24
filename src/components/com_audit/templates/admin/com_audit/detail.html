@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}{{ ct('com_audit.admin.detail.heading') }} #{{ entry.id }}{% endblock %}
+{% block heading %}{{ ct('com_audit.admin.detail.heading') }} #{{ entry.id }}{% endblock %}
+
+{% block content %}
+{% set audit_breadcrumb_current = ct('com_audit.admin.detail.heading') ~ ' #' ~ entry.id %}
+{% include "admin/com_audit/_breadcrumbs.html" %}
+
+<div class="card mb-4">
+  <div class="card-body">
+    <dl class="row mb-0">
+      <dt class="col-sm-3">{{ ct('com_audit.col.id') }}</dt>
+      <dd class="col-sm-9">{{ entry.id }}</dd>
+
+      <dt class="col-sm-3">{{ ct('com_audit.col.event') }}</dt>
+      <dd class="col-sm-9"><code>{{ entry.event }}</code></dd>
+
+      <dt class="col-sm-3">{{ ct('com_audit.col.actor') }}</dt>
+      <dd class="col-sm-9">
+        {% if entry.actor_name %}
+          {{ entry.actor_name }}
+          {% if entry.actor_id %}
+            <span class="text-body-secondary small">(ID {{ entry.actor_id }})</span>
+          {% endif %}
+        {% else %}
+          <span class="text-body-secondary">—</span>
+        {% endif %}
+      </dd>
+
+      <dt class="col-sm-3">{{ ct('com_audit.col.ip') }}</dt>
+      <dd class="col-sm-9">{{ entry.ip_address or '—' }}</dd>
+
+      <dt class="col-sm-3">{{ ct('com_audit.col.created_at') }}</dt>
+      <dd class="col-sm-9">{{ entry.created_at.strftime('%Y-%m-%d %H:%M:%S UTC') }}</dd>
+
+      <dt class="col-sm-3">{{ ct('com_audit.col.context') }}</dt>
+      <dd class="col-sm-9">
+        <pre class="bg-body-secondary rounded p-2 small mb-0" style="white-space:pre-wrap;word-break:break-all">{{ entry.context }}</pre>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<a href="/admin/com_audit" class="btn btn-outline-secondary btn-sm">
+  <i class="bi bi-arrow-left" aria-hidden="true"></i>
+  {{ ct('com_audit.action.back') }}
+</a>
+{% endblock %}

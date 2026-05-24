@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "name": "com_audit",
+  "type": "component",
+  "vendor": "klucon",
+  "extension_id": "klucon/com_audit",
+  "version": "0.1.0",
+  "display_name": "Audit log",
+  "display_name_key": "extensions.name.com_audit",
+  "description": "Záznam administrativních a bezpečnostních událostí (přihlášení, změny uživatelů, systémové akce) s filtrovatelným přehledem v administraci.",
+  "license": "MIT",
+  "author": {
+    "name": "KLUCON",
+    "url": "https://klucon.cz"
+  },
+  "links": {
+    "homepage": "https://marketplace.klucon.cz",
+    "repository": "https://github.com/klucon/com_audit"
+  },
+  "compatibility": {
+    "core_min": "0.2.0",
+    "core_max": null,
+    "python": ">=3.12",
+    "database": [
+      "mysql",
+      "postgresql"
+    ]
+  },
+  "package": {
+    "python_package": "com_audit",
+    "entrypoint": "src.components.com_audit",
+    "setup_function": "setup",
+    "admin_router": "admin.router",
+    "web_views": [],
+    "settings_url": "/admin/com_audit"
+  },
+  "permissions": [
+    {
+      "key": "audit.view",
+      "label": "permissions.audit.view"
+    },
+    {
+      "key": "audit.purge",
+      "label": "permissions.audit.purge"
+    }
+  ],
+  "i18n": {
+    "domain": "com_audit",
+    "locales_path": "i18n",
+    "required_locales": [
+      "cs_CZ",
+      "en_GB"
+    ]
+  },
+  "migrations": {
+    "enabled": false,
+    "path": "migrations"
+  },
+  "security": {
+    "requires_signature": true,
+    "capabilities": [
+      "database.write",
+      "admin.routes",
+      "hooks.user.*",
+      "hooks.app.*"
+    ]
+  },
+  "settings_schema": [
+    {
+      "key": "retention_days",
+      "type": "number",
+      "label": "Retence záznamů (dny)",
+      "default": 90
+    },
+    {
+      "key": "log_app_events",
+      "type": "boolean",
+      "label": "Logovat app.startup / app.shutdown",
+      "default": false
+    }
+  ],
+  "marketplace": {
+    "category": "security",
+    "tags": [
+      "audit",
+      "log",
+      "security",
+      "compliance"
+    ],
+    "featured": false
+  },
+  "dashboard": {
+    "quick_icon": {
+      "enabled": true,
+      "label": "Audit log",
+      "description": "Přehled událostí a bezpečnostních akcí.",
+      "icon": "shield-check",
+      "url": "/admin/com_audit",
+      "order": 900
+    }
+  },
+  "routes": {
+    "admin": {
+      "enabled": true,
+      "prefix": "/admin/com_audit",
+      "nav_label": "extensions.name.com_audit",
+      "nav_icon": "shield-check",
+      "nav_order": 900
+    },
+    "web": {
+      "enabled": false
+    }
+  },
+  "admin_url": "/admin/com_audit",
+  "changelog": "První vydání: záznam user.* a app.* hooků, filtrování, detail záznamu, konfigurovatelná retence."
+}

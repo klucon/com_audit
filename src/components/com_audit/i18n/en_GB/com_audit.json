@@ -1,0 +1,33 @@
+{
+  "extensions.name.com_audit": "Audit log",
+  "permissions.audit.view": "Audit log: view",
+  "permissions.audit.purge": "Audit log: purge old entries",
+
+  "com_audit.admin.heading": "Audit log",
+  "com_audit.admin.detail.heading": "Entry detail",
+
+  "com_audit.col.id": "ID",
+  "com_audit.col.event": "Event",
+  "com_audit.col.actor": "User",
+  "com_audit.col.ip": "IP address",
+  "com_audit.col.created_at": "Date and time",
+  "com_audit.col.context": "Context",
+
+  "com_audit.filter.event": "Event type",
+  "com_audit.filter.actor_id": "User ID",
+  "com_audit.filter.date_from": "From",
+  "com_audit.filter.date_to": "To",
+  "com_audit.filter.all_events": "All events",
+  "com_audit.filter.submit": "Filter",
+  "com_audit.filter.reset": "Clear filter",
+
+  "com_audit.action.detail": "Detail",
+  "com_audit.action.purge": "Purge old entries",
+  "com_audit.action.back": "Back to list",
+
+  "com_audit.confirm.purge": "Really delete entries older than the configured retention period?",
+
+  "com_audit.empty": "No entries found.",
+  "com_audit.total": "Total {total} entries.",
+  "com_audit.page": "Page {page} of {pages}."
+}

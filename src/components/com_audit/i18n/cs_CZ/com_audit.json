@@ -1,0 +1,33 @@
+{
+  "extensions.name.com_audit": "Audit log",
+  "permissions.audit.view": "Audit log: zobrazení",
+  "permissions.audit.purge": "Audit log: mazání starých záznamů",
+
+  "com_audit.admin.heading": "Audit log",
+  "com_audit.admin.detail.heading": "Detail záznamu",
+
+  "com_audit.col.id": "ID",
+  "com_audit.col.event": "Událost",
+  "com_audit.col.actor": "Uživatel",
+  "com_audit.col.ip": "IP adresa",
+  "com_audit.col.created_at": "Datum a čas",
+  "com_audit.col.context": "Kontext",
+
+  "com_audit.filter.event": "Typ události",
+  "com_audit.filter.actor_id": "ID uživatele",
+  "com_audit.filter.date_from": "Od",
+  "com_audit.filter.date_to": "Do",
+  "com_audit.filter.all_events": "Všechny události",
+  "com_audit.filter.submit": "Filtrovat",
+  "com_audit.filter.reset": "Zrušit filtr",
+
+  "com_audit.action.detail": "Detail",
+  "com_audit.action.purge": "Smazat staré záznamy",
+  "com_audit.action.back": "Zpět na seznam",
+
+  "com_audit.confirm.purge": "Opravdu smazat záznamy starší než nakonfigurovaný počet dní?",
+
+  "com_audit.empty": "Žádné záznamy.",
+  "com_audit.total": "Celkem {total} záznamů.",
+  "com_audit.page": "Strana {page} z {pages}."
+}
