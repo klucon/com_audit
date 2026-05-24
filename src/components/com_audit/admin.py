@@ -1,11 +1,11 @@
 from __future__ import annotations
 
+from contextlib import suppress
 from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from sqlalchemy.ext.asyncio import AsyncSession
-
 from src.api.admin.deps import CurrentAdminUser
 from src.api.admin.render import admin_render
 from src.core.acl import require_admin_permission
@@ -110,10 +110,8 @@ async def purge(
         )
     ).scalar_one_or_none()
     if comp and isinstance(comp.settings, dict):
-        try:
+        with suppress(TypeError, ValueError):
             retention_days = int(comp.settings.get("retention_days", 90))
-        except (TypeError, ValueError):
-            pass
 
     deleted = await purge_old_events(db, retention_days=retention_days)
 

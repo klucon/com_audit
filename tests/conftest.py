@@ -23,13 +23,14 @@ os.environ.setdefault("COOKIE_SECURE", "false")
 os.environ.setdefault("DEBUG", "true")
 os.environ.setdefault("ALLOWED_ORIGINS", "[]")
 
-import pytest  # noqa: E402
 import pytest_asyncio  # noqa: E402
 from httpx import ASGITransport, AsyncClient  # noqa: E402
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine  # noqa: E402
+from sqlalchemy.ext.asyncio import (  # noqa: E402
+    AsyncSession,
+    async_sessionmaker,
+    create_async_engine,
+)
 from sqlalchemy.pool import StaticPool  # noqa: E402
-
-from src.components.com_audit.models import AuditLog  # noqa: E402
 from src.config import get_settings  # noqa: E402
 from src.constants import ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_VIEWER  # noqa: E402
 from src.core.db import get_optional_db_session  # noqa: E402
@@ -37,6 +38,8 @@ from src.core.security import hash_password  # noqa: E402
 from src.database.base import Base, get_db_session  # noqa: E402
 from src.database.models import Role, SystemSettings, User  # noqa: E402
 from src.i18n.translator import translator as _translator  # noqa: E402
+
+from src.components.com_audit.models import AuditLog  # noqa: E402
 
 get_settings.cache_clear()
 
@@ -52,8 +55,9 @@ if not any(
 ):
     admin_templates.loader.loaders.append(FileSystemLoader(str(_COMP_TEMPLATES)))
 
-from src.components.com_audit import admin as _audit_admin  # noqa: E402
 from src.main import app as _cms_app  # noqa: E402
+
+from src.components.com_audit import admin as _audit_admin  # noqa: E402
 
 if not any(
     getattr(r, "path", "").startswith("/admin/com_audit")

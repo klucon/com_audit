@@ -14,6 +14,7 @@ def _ip(request: Any) -> str:
 
 async def _write(event: str, actor_id: int | None, actor_name: str, ip: str, ctx: dict) -> None:
     from src.database.base import async_session_factory
+
     from .service import log_event
 
     if async_session_factory is None:

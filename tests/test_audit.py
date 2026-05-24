@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from datetime import UTC, datetime, timedelta
 
-import pytest
 from httpx import AsyncClient
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -14,8 +13,6 @@ from src.components.com_audit.service import (
     log_event,
     purge_old_events,
 )
-from src.database.models import User
-
 
 # ── log_event ─────────────────────────────────────────────────────────────────
 
@@ -167,8 +164,9 @@ async def test_admin_index_filter_event(auth_client: AsyncClient, db_session: As
 
 # ── helpers ───────────────────────────────────────────────────────────────────
 
-def AuditLogFactory(*, event: str, days_ago: int) -> "AuditLog":
+def AuditLogFactory(*, event: str, days_ago: int):
     from src.components.com_audit.models import AuditLog
+
     return AuditLog(
         event=event,
         actor_id=None,
