@@ -4,7 +4,7 @@
   "type": "component",
   "vendor": "klucon",
   "extension_id": "klucon/com_audit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "display_name": "Audit log",
   "display_name_key": "extensions.name.com_audit",
   "description": "Záznam administrativních a bezpečnostních událostí (přihlášení, změny uživatelů, systémové akce) s filtrovatelným přehledem v administraci.",
